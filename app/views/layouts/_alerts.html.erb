@@ -1,0 +1,15 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+     <p class="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div class="alert alert-dange role="alert">
+    <p class="alert"><%= alert %></p>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  setTimeout("$('.alert').fadeOut(3000).slideUp(500)");
+</script>

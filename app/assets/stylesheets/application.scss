@@ -1,0 +1,65 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+  background-color: #fafbfc;
+  font: 300 16px/1.3 AktivGrotesk,"HelveticaNeue",Arial,Helvetica,sans-serif;
+}
+.container.col-centered{
+  margin: 0px auto;
+  text-align: center;
+  width: 800px;
+}
+
+.cr-form-inline {
+  margin-top: 1em;
+
+  .cr-form-control {
+    width: 87%;
+    height: 40px;
+    margin-right: 1%;
+    border: none;
+    outline: none;
+  }
+}
+
+.task-area {
+  margin-top: 4em;
+  padding: 2em;
+  background-color: rgba(250, 250, 250, 0.3);
+  border-radius: 7px;
+  box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.09);
+}
+
+.list-group-item{
+  list-style: none;
+  text-align: left;
+  margin-bottom: 3px;
+  font-weight: 200;
+}
+.strike {text-decoration: line-through;}
+
+.alert{
+  width: 790px;
+  margin: 0px auto;
+  text-align: center;
+  font-size: 16px;
+}
+.btn.btn-primary{
+  border-radius: 290486px;
+ }

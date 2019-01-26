@@ -1,0 +1,9 @@
+$('.task_name').val('');
+
+$('#item').append('<%= j render @task %>'); 
+
+<% if @task.errors.empty? %>
+  $(".notice").html('<%= j render partial: "layouts/alerts", locals: { notice: flash[:notice] } %>');
+<% else %>
+  $(".notice").html('<%= j render partial: "layouts/alerts", locals: { alert: flash[:alert] } %>');
+<% end %>

@@ -1,0 +1,17 @@
+<%= form_for(@task, remote: true) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inline cr-form-inline">
+    <%= f.text_field :name, required: true, class: 'form-control cr-form-control task_name', placeholder: "Task name"  %>
+    <%= f.submit "Add task", class: 'btn btn-primary' %>
+  </div>
+<% end %>

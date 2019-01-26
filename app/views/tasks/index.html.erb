@@ -1,0 +1,10 @@
+<div class="notice"></div>
+<div class="row text-center">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="task-area"> 
+      <h1>Task Management System</h1>
+        <div id="item" class="items" data-url="<%= sort_tasks_path%>"><%= render @tasks %></div>
+        <%= render partial: "form" %>
+    </div>
+  </div>
+</div>

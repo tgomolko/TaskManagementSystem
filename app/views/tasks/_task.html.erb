@@ -1,0 +1,43 @@
+<ul id="taskitem_<%= task.id %>" class="list-group-item "> 
+  <% if task.completed %>
+    <li id="str_<%= task.id %>" class="strike"><%= task.name %>
+      <%= check_box_tag 'completed', task.id , task.completed, 
+                         :class => "task-check_#{task.id} all pull-right", data: {
+                         remote: true} %>
+    </li>
+    <% else %>
+      <li id="str_<%= task.id %>"><%= task.name %>
+      <%= check_box_tag 'completed', task.id , task.completed, 
+                         :class => "task-check_#{task.id} all pull-right", data: {
+                         remote: true} %>
+    </li>
+  <% end %>
+</ul>
+
+
+<script type="text/javascript">
+  $(".task-check_<%= task.id %>").on('click', function(){
+    if (this.checked){
+      $.ajax({
+        url: '/tasks/'+this.value+'/complete',
+        type: 'PATCH',
+        data: {"completed": this.checked}, 
+        success: function () {
+          $('#str_<%= task.id%>').addClass("strike");
+          alert("Task was completed!");
+        }
+      });
+    }
+    else {
+      $.ajax({
+        url: '/tasks/'+this.value+'/uncomplete',
+        type: 'PATCH',
+        data: {"completed": this.checked}, 
+        success: function () {
+          $('#str_<%= task.id%>').removeClass("strike");
+        }
+      });
+    
+    }
+  });
+</script>
