@@ -26,7 +26,7 @@ The user should be able to change the ordering of the tasks using Drag & Drop.
 Clone the repository:
 
 ```bash
-git clone gggg
+git clone https://github.com/tgomolko/TaskManagementSystem.git
 ```
 Change into the directory: 
 ```bash
