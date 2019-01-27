@@ -20,7 +20,6 @@ The user should be able to change the ordering of the tasks using Drag & Drop.
  - AJAX
  - Bootstrap (CSS framework)
  - Control Version: Git
- - Rspec
 
 ## Instalation
 Clone the repository:
@@ -44,3 +43,13 @@ Start local server
 rails s
 ```
 Go to your browser and open http://localhost:3000
+## Testing 
+
+Test run for controller
+```bash
+bin/rails test test/controllers/tasks_controller_test.rb
+```
+Test run for model
+```bash
+ bin/rails test test/models/task_test.rb
+```

@@ -3,8 +3,9 @@
 one:
   name: MyString
   completed: false
-  position: nil
+  position: 1
 
 two:
   name: MyString
   completed: false
+  position: 2
