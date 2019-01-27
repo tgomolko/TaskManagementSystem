@@ -14,7 +14,6 @@
   <% end %>
 </ul>
 
-
 <script type="text/javascript">
   $(".task-check_<%= task.id %>").on('click', function(){
     if (this.checked){
@@ -35,6 +34,7 @@
         data: {"completed": this.checked}, 
         success: function () {
           $('#str_<%= task.id%>').removeClass("strike");
+          alert("Task was incompleted!");
         }
       });
     
