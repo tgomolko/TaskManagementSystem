@@ -14,6 +14,7 @@
   <% end %>
 </ul>
 
+<%# JS code for complete/incomplete tasks %>
 <script type="text/javascript">
   $(".task-check_<%= task.id %>").on('click', function(){
     if (this.checked){
@@ -37,7 +38,6 @@
           alert("Task was incompleted!");
         }
       });
-    
     }
   });
 </script>
