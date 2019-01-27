@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tasks do
+  resources :tasks, only: [:index, :create, :new, :destroy] do
     member do
       patch 'complete'
       patch 'uncomplete'

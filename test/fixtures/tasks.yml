@@ -3,6 +3,7 @@
 one:
   name: MyString
   completed: false
+  position: nil
 
 two:
   name: MyString

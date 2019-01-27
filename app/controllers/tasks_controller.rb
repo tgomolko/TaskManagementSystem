@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :complete, :uncomplete]
+  before_action :set_task, only: [:destroy, :complete, :uncomplete]
 
   # GET /tasks
   # GET /tasks.json
@@ -8,19 +8,10 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
-  def show
-  end
-
   # GET /tasks/new
   def new
     @task = Task.new
 
-  end
-
-  # GET /tasks/1/edit
-  def edit
   end
 
   # POST /tasks
@@ -35,20 +26,6 @@ class TasksController < ApplicationController
       else
         format.js
         format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /tasks/1
-  # PATCH/PUT /tasks/1.json
-  def update
-    respond_to do |format|
-      if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
-      else
-        format.html { render :edit }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -94,8 +71,13 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
     end
 
+    def task_position_value
+      Task.pluck(:position).to_a.max == nil ?  1 : Task.pluck(:position).to_a.max + 1
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :completed)
+      params[:task][:position] = task_position_value
+      params.require(:task).permit(:name, :completed, :position)
     end
 end

@@ -17,25 +17,10 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create task" do
     assert_difference('Task.count') do
-      post tasks_url, params: { task: { completed: @task.completed, name: @task.name } }
+      post tasks_url,  xhr: true,  params: { task: { completed: @task.completed, name: @task.name } }
     end
 
-    assert_redirected_to task_url(Task.last)
-  end
-
-  test "should show task" do
-    get task_url(@task)
     assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_task_url(@task)
-    assert_response :success
-  end
-
-  test "should update task" do
-    patch task_url(@task), params: { task: { completed: @task.completed, name: @task.name } }
-    assert_redirected_to task_url(@task)
   end
 
   test "should destroy task" do
@@ -44,5 +29,15 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to tasks_url
+  end
+
+  test "should complete task" do
+    patch complete_task_url(@task), xhr: true, params: {id: @task.id, completed: true} 
+    assert_response :success
+  end
+
+  test "should incomplete task" do
+    patch uncomplete_task_url(@task), xhr: true, params: {id: @task.id, completed: false} 
+    assert_response :success
   end
 end
